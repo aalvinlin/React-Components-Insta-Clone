@@ -34,6 +34,20 @@ const App = () => {
         - if the `id` of the post matches `postId`, return a new post object with the desired values (use the spread operator).
         - otherwise just return the post object unchanged.
      */
+
+     let newPostsData = [];
+
+     for (let i = 0; i < posts.length; i += 1)
+      {
+        let currentPost = posts[i];
+
+        if (currentPost.id === postId)
+          { newPostsData.push({...currentPost, likes: currentPost.likes + 1}); }
+        else
+          { newPostsData.push({...currentPost})}
+      }
+
+      setPosts(newPostsData);
   };
 
   return (
